@@ -43,12 +43,17 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    images
-      .asDriver()
+    images.asDriver()
       .drive(onNext: { [weak imagePreview] photos in
         guard let preview = imagePreview else { return }
 
         preview.image = photos.collage(size: preview.frame.size)
+      })
+      .disposed(by: bag)
+    
+    images.asObservable()
+      .subscribe(onNext: { [weak self] photos in
+        self?.updateUI(photos: photos)
       })
       .disposed(by: bag)
   }
@@ -70,5 +75,12 @@ class MainViewController: UIViewController {
     let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { [weak self] _ in self?.dismiss(animated: true, completion: nil)}))
     present(alert, animated: true, completion: nil)
+  }
+  
+  private func updateUI(photos: [UIImage]) {
+    buttonSave.isEnabled = photos.count > 0 && photos.count % 2 == 0
+    buttonClear.isEnabled = photos.count > 0
+    itemAdd.isEnabled = photos.count < 6
+    title = photos.count > 0 ? "\(photos.count) photos" : "Collage"
   }
 }
