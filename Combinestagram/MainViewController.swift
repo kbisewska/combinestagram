@@ -43,6 +43,14 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    images
+      .asDriver()
+      .drive(onNext: { [weak imagePreview] photos in
+        guard let preview = imagePreview else { return }
+
+        preview.image = photos.collage(size: preview.frame.size)
+      })
+      .disposed(by: bag)
   }
   
   @IBAction func actionClear() {
