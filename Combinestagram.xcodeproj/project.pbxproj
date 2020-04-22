@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8FE36C5924503C4500556BA3 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8FE36C5824503C4500556BA3 /* RxSwift */; };
 		8FE36C5B24503C4500556BA3 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8FE36C5A24503C4500556BA3 /* RxCocoa */; };
+		8FE36C5D2450834300556BA3 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE36C5C2450834300556BA3 /* UIViewController+Rx.swift */; };
 		9CDD7B041DE5AABE0058B2D5 /* UIImage+Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD7B031DE5AABE0058B2D5 /* UIImage+Collage.swift */; };
 		9CDD7B061DE5BC660058B2D5 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD7B051DE5BC660058B2D5 /* PhotosViewController.swift */; };
 		9CDD7B081DE6D7ED0058B2D5 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD7B071DE6D7ED0058B2D5 /* PhotoCell.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8FE36C5C2450834300556BA3 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		9CDD7B031DE5AABE0058B2D5 /* UIImage+Collage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIImage+Collage.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9CDD7B051DE5BC660058B2D5 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PhotosViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9CDD7B071DE6D7ED0058B2D5 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PhotoCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -94,6 +96,7 @@
 				9CE7E5DE1DE5A40A00C8BA5A /* MainViewController.swift */,
 				9CDD7B051DE5BC660058B2D5 /* PhotosViewController.swift */,
 				9CDD7B071DE6D7ED0058B2D5 /* PhotoCell.swift */,
+				8FE36C5C2450834300556BA3 /* UIViewController+Rx.swift */,
 			);
 			path = Combinestagram;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				9CDD7B0C1DE6E3D30058B2D5 /* PhotoWriter.swift in Sources */,
 				9CE7E5DF1DE5A40A00C8BA5A /* MainViewController.swift in Sources */,
 				9CE7E5DD1DE5A40A00C8BA5A /* AppDelegate.swift in Sources */,
+				8FE36C5D2450834300556BA3 /* UIViewController+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
