@@ -85,6 +85,9 @@ class MainViewController: UIViewController {
       .share()
     
     newPhotos
+      .filter { newImage in
+        return newImage.size.width > newImage.size.height
+      }
       .ignoreElements()
       .subscribe(onCompleted: { [weak self] in
         self?.updateNavigationIcon()
