@@ -11,6 +11,7 @@ import Photos
 import RxSwift
 
 extension PHPhotoLibrary {
+  
   static var authorized: Observable<Bool> {
     return Observable.create { observer in
       DispatchQueue.main.async {

@@ -45,15 +45,18 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    images.asDriver()
-      .drive(onNext: { [weak imagePreview] photos in
-        guard let preview = imagePreview else { return }
+    images
+      .asObservable()
+      .throttle(0.5, scheduler: MainScheduler.instance)
+      .subscribe(onNext: { [weak self] photos in
+        guard let preview = self?.imagePreview else { return }
 
-        preview.image = photos.collage(size: preview.frame.size)
+        preview.image = UIImage.collage(images: photos, size: preview.frame.size)
       })
       .disposed(by: bag)
     
-    images.asObservable()
+    images
+      .asObservable()
       .subscribe(onNext: { [weak self] photos in
         self?.updateUI(photos: photos)
       })
@@ -103,6 +106,15 @@ class MainViewController: UIViewController {
         self?.imageCache.append(len)
         return true
       }
+      .subscribe(onNext: { [weak self] newImage in
+        guard let images = self?.images else { return }
+        images.accept(images.value + [newImage])
+      }, onDisposed: {
+          print("Completed photo selection")
+      })
+      .disposed(by: bag)
+      
+    newPhotos
       .ignoreElements()
       .subscribe(onCompleted: { [weak self] in
         self?.updateNavigationIcon()
